@@ -9,7 +9,7 @@
 %% the Windows callback struct keeps proper integrity.  Such functions
 %% must begin with "dummy."
 %%
-api_list(Version, Wordsize, HasDirtySchedulers) when Version=={2,7} orelse Version=={2,8} -> [
+api_list(Version, Wordsize, HasDirtySchedulers) when Version=={2,7} orelse Version=={2,8} orelse Version=={2,9} orelse Version=={2,10} orelse Version=={2,11} -> [
 
     {"*mut c_void", "enif_priv_data", "arg1: *mut ErlNifEnv"},
     {"*mut c_void", "enif_alloc", "size: size_t"},
@@ -302,6 +302,9 @@ get_nif_version() ->
 
 version_string2tuple("2.7") -> {2,7};
 version_string2tuple("2.8") -> {2,8};
+version_string2tuple("2.9") -> {2,9};
+version_string2tuple("2.10") -> {2,10};
+version_string2tuple("2.11") -> {2,11};
 version_string2tuple(_) -> unsupported.
 
 check_version(unsupported) ->
